@@ -1,21 +1,14 @@
-# PyTorch test of convolutional neural network
-# Submit file 
-container_image = osdf:///ospool/uc-shared/public/OSG-Staff/pytorch-2.1.1.sif
+container_image = osdf:///ospool/<AP/data/<USERNAME>/pytorch-2.9.0.sif
 
-# set the log, error and output files 
-log = pytorch_cnn.log.txt
-error = pytorch_cnn.err.txt
-output = pytorch_cnn.out.txt
+log = logs/pytorch_cnn.log.txt
+error = logs/pytorch_cnn.err.txt
+output = output/pytorch_cnn.out.txt
 
-# set the executable to run
 executable = pytorch_cnn.sh
 arguments = $(Process)
 
 # Transfer the python script and the MNIST database to the compute node
 transfer_input_files = main.py, MNIST_data.tar.gz
-
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
 
 # We require a machine with a compatible version of the CUDA driver
 require_gpus = (DriverVersion >= 10.1)
@@ -24,9 +17,7 @@ require_gpus = (DriverVersion >= 10.1)
 request_cpus = 1
 request_gpus = 1
 
-# select some memory and disk space
 request_memory = 3GB
 request_disk = 5GB
 
-# Tell HTCondor to run 1 instances of our job:
 queue 1

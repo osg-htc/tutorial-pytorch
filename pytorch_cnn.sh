@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 echo "Hello OSPool from Job $1 running on `hostname`"
 
 # untar the test and training data
