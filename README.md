@@ -26,7 +26,7 @@ Now, we pull the image and convert it to a `.sif` file using `apptainer pull`
 ```
 
 #### Transfer the image using OSDF
-The above command will create a singularity container named `pytorch-2.1.1.sif` in your current directory. The image will be reused for each job, and thus the preferred transfer method is [OSDF](https://portal.osg-htc.org/documentation/htc_workloads/managing_data/osdf/). Store the `pytorch-2.9.0.sif` file your data directory on the access point (see table [here](https://portal.osg-htc.org/documentation/htc_workloads/managing_data/overview/)), and then use the OSDF url directly in the `container_image` attribute.  Note that you can not use shell variable expansion in the submit file - be sure to replace the access point and username with your actual OSPool username.
+The above command will create a singularity container named `pytorch-2.9.0.sif` in your current directory. The image will be reused for each job, and thus the preferred transfer method is [OSDF](https://portal.osg-htc.org/documentation/htc_workloads/managing_data/osdf/). Store the `pytorch-2.9.0.sif` file your data directory on the access point (see table [here](https://portal.osg-htc.org/documentation/htc_workloads/managing_data/overview/)), and then use the OSDF url directly in the `container_image` attribute.  Note that you can not use shell variable expansion in the submit file - be sure to replace the access point and username with your actual OSPool username.
 
 ```
 container_image = osdf:///ospool/<AP/data/<USERNAME>/pytorch-2.9.0.sif
